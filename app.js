@@ -18,15 +18,15 @@ function showMovies(movies) {
   result.classList.remove("hidden");
   result.innerHTML = "";
   for (let i = 0; i < movies.length; i++) {
-    let movie = getMovieElement(movies[i]);
-    result.append(movie);
+    let movieElement = getMovieElement(movies[i]);
+    result.append(movieElement);
   }
 }
 function getMovieElement(movie) {
   const movieElement = document.createElement("div");
   movieElement.className = "movie";
   movieElement.innerHTML = `
-        <img class="movie-poster" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/btTdmkgIvOi0FFip1sPuZI2oQG6.jpg">
+        <img class="movie-poster" src="https://image.tmdb.org/t/p/w185${movie.poster_path}">
         <div class="movie-content">
           <div class="movie-title">${movie.title}</div>
           <div class="movie-overview">
@@ -36,3 +36,4 @@ function getMovieElement(movie) {
    `;
   return movieElement;
 }
+// + background url-s and movie poster placeholder
